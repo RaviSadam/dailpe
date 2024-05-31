@@ -30,6 +30,7 @@ public class UserService {
         user.setManagetId(createUser.getManagetId());
         user.setMobileNumber(createUser.getMobileNumber());
         user.setPanNumber(createUser.getPanNumber());
+        user.setActive(true);
 
         Date date=new Date(System.currentTimeMillis());
 
@@ -62,6 +63,5 @@ public class UserService {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Multipule user found");
         userRepository.delete(users.get(0));
         return ResponseEntity.ok().body("User successfully deleted");
-        
-    } 
+    }
 }
